@@ -46,6 +46,19 @@ class LinkedList {
         return this.head
     }
 
+    getTail(){
+        if(!this.getHead()){
+            return null
+        }
+        let currentNode = this.getHead()
+        while(currentNode.nextNode){
+            currentNode = currentNode.nextNode
+        }
+        return currentNode
+
+
+    }
+
 
 
 
@@ -69,6 +82,7 @@ list.append("a");
 list.append("b");
 list.append("c");
 list.prepend("d")
+console.log(list.getTail())
 console.log(list.size())
 console.log(list)
 
