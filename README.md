@@ -58,7 +58,7 @@ console.log(last.value);           // 20
 list.removeAt(1);                  // removes value 10 → [5, 15]
 console.log(list.toString());      // (5) -> (15) -> null
 
-
+```
 ## ⏱️ Time Complexity
 
 | **Operation**        | **Time Complexity** | **Description** |
