@@ -117,6 +117,60 @@ class LinkedList {
         
     }
 
+    toString(){
+        if (!this.getHead()){
+            return "null"
+        }
+        let string = `(${this.getHead().value})`
+        let currentNode = this.getHead().nextNode
+        while (currentNode){
+            string = `${string} -> (${currentNode.value}) `
+            currentNode = currentNode.nextNode
+        }
+        string = `${string} -> null`;
+        return string 
+    }
+
+    insertAt(value,index){
+        if((index > this.size()-1) || index <0 ){
+            return null
+        }
+        if (index == 0){
+            this.prepend(value)
+            return
+        }
+        let count = 0
+        let currentNode = this.getHead()
+        while (count < index -1){
+            currentNode = currentNode.nextNode;
+            count +=1
+        }
+        let temp = currentNode.nextNode
+        const node = new Node(value)
+        currentNode.nextNode = node
+        node.nextNode = temp
+        return
+    }
+
+    removeAt(index){
+        if((index > this.size()-1) || index <0 ){
+            return null
+        }
+        if(index == 0){
+            this.head = this.head.nextNode
+            return
+        }
+        let count = 0
+        let currentNode = this.getHead()
+        while(count < index -1){
+            currentNode = currentNode.nextNode;
+            count +=1;
+        }
+        currentNode.nextNode = currentNode.nextNode.nextNode
+        return
+
+    }
+
 
 
 
@@ -135,18 +189,3 @@ class Node {
         this.nextNode = null
     }
 }
-
-const list = new LinkedList();
-
-list.append("a");
-list.append("b");
-list.append("c");
-list.prepend("d")
-console.log(list.getTail())
-console.log(list.size())
-
-console.log(list)
-console.log(list.contains("e"))
-
-
-
