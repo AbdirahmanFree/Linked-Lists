@@ -86,6 +86,37 @@ class LinkedList {
         return tempNode
     }
 
+    contains(value){
+        if(!this.getHead()){
+            return false;
+        }
+        let currentNode = this.getHead()
+        while(currentNode.nextNode){
+            if (currentNode.value == value){
+                return true
+            }
+            currentNode = currentNode.nextNode;
+        }
+        return false;
+    }
+
+    find(value){
+        if(!this.getHead()){
+            return value;
+        }
+        let currentNode = this.getHead()
+        let count = 0;
+        while(currentNode){
+            if (currentNode.value == value){
+                return count
+            }
+            currentNode = currentNode.nextNode;
+            count+=1;
+        }
+        return null
+        
+    }
+
 
 
 
@@ -113,10 +144,9 @@ list.append("c");
 list.prepend("d")
 console.log(list.getTail())
 console.log(list.size())
-console.log(list)
-console.log(list.pop())
-console.log(list)
 
+console.log(list)
+console.log(list.contains("e"))
 
 
 
